@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>易倍体育 · 信息参考页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: #f3f5f7;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 0 20px;
+        }
+
+        .page-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 24px 0 60px;
+        }
+
+        /* 顶部导航 —— 轻量清爽 */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand {
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+            color: #1e293b;
+        }
+
+        .brand small {
+            font-weight: 400;
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-left: 6px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #1e293b;
+            border-bottom-color: #94a3b8;
+        }
+
+        /* hero 区 */
+        .hero {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 48px 36px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.04);
+            margin-bottom: 48px;
+            border: 1px solid #e9edf2;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 18px;
+            letter-spacing: -0.3px;
+            color: #0f172a;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #334155;
+            max-width: 780px;
+            margin-bottom: 12px;
+        }
+
+        .hero .intro-link {
+            margin-top: 16px;
+        }
+
+        .hero .intro-link a {
+            color: #1e3a5f;
+            text-decoration: none;
+            border-bottom: 1px dashed #a0b4cc;
+            font-weight: 500;
+        }
+
+        .hero .intro-link a:hover {
+            border-bottom-style: solid;
+            color: #0b2239;
+        }
+
+        /* 普通卡片区 */
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 28px;
+            color: #1e293b;
+            border-left: 4px solid #b0c4d9;
+            padding-left: 16px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 28px 22px 26px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #eaeef3;
+            transition: box-shadow 0.15s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0,0,0,0.03), 0 1px 4px rgba(0,0,0,0.04);
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1f2a3a;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #3b4a5a;
+            margin-bottom: 10px;
+        }
+
+        .card .meta-note {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #6f7d8c;
+            background: #f1f5f9;
+            padding: 2px 10px;
+            border-radius: 30px;
+            margin-top: 6px;
+        }
+
+        /* 常见说明/摘要区 */
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 36px 32px;
+            border: 1px solid #e4eaf0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.01);
+            margin-bottom: 44px;
+        }
+
+        .faq-summary h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1a2533;
+        }
+
+        .faq-item {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+            border-bottom: 1px dashed #dce2e9;
+            padding-bottom: 14px;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            min-width: 140px;
+            font-weight: 500;
+            color: #1e293b;
+            font-size: 0.96rem;
+        }
+
+        .faq-a {
+            flex: 1;
+            color: #3b4b5b;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #1e3a5f;
+            text-decoration: none;
+            border-bottom: 1px solid #cbd5e1;
+        }
+
+        .faq-a a:hover {
+            border-bottom-color: #1e293b;
+        }
+
+        /* 延伸阅读 */
+        .extras {
+            margin-top: 12px;
+            padding: 20px 0 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px 28px;
+            border-top: 1px solid #e1e8ef;
+            font-size: 0.9rem;
+        }
+
+        .extras span {
+            color: #4b5c6e;
+        }
+
+        .extras a {
+            color: #1e3a5f;
+            text-decoration: none;
+            border-bottom: 1px solid #d0dbe8;
+        }
+
+        .extras a:hover {
+            border-bottom-color: #1a2f44;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            text-align: center;
+            color: #6b7b8c;
+            font-size: 0.8rem;
+            padding-top: 32px;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 820px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                gap: 16px 20px;
+                margin-top: 6px;
+            }
+
+            .hero {
+                padding: 30px 20px;
+            }
+
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+
+            .faq-summary {
+                padding: 24px 18px;
+            }
+
+            .faq-item {
+                flex-direction: column;
+            }
+
+            .faq-q {
+                min-width: unset;
+                margin-bottom: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="brand">易倍体育 <small>· 信息整理</small></div>
+        <ul class="nav-links">
+            <li><a href="#intro">核心介绍</a></li>
+            <li><a href="#scenes">场景模块</a></li>
+            <li><a href="#faq">常见说明</a></li>
+            <li><a href="#ref">延伸</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero + 核心介绍（id=intro） -->
+    <div class="hero" id="intro">
+        <h1>易倍体育 · 日常查询与对照</h1>
+        <p>
+            这是一个围绕 <strong>易倍体育</strong> 整理的信息参考页面。内容从日常查询、对照和延伸阅读角度出发，
+            不涉及服务评价或诱导，仅作为公开资料的归纳与展示。如果你正在了解相关体育资讯或平台背景，
+            这里提供结构化的模块作为辅助参考。
+        </p>
+        <p>
+            关于平台的更多直接信息，可参阅 <a href="https://panel-yibeisport.com" style="font-weight:500; text-decoration:none; border-bottom:1px solid #a0bccf;">易倍体育</a> 的官方面板。
+            下方卡片分别覆盖三个常见应用场景，末尾附有简短说明摘录。
+        </p>
+    </div>
+
+    <!-- 三个场景模块 (id=scenes) -->
+    <h2 class="section-title" id="scenes">日常场景模块</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>📋 信息对照</h3>
+            <p>在日常浏览中，经常需要将不同来源的数据或条目进行对照。易倍体育提供的界面结构比较清晰，适合做条目式的快速比对与记录。</p>
+            <p>例如赛事列表、统计摘要或分类标签，均可在同一视图下完成横向参照。</p>
+            <span class="meta-note">对照 · 整理</span>
+        </div>
+        <div class="card">
+            <h3>🔍 日常查询</h3>
+            <p>查询频率较高的内容包括最新动态、分类索引以及基础数据。通过易倍体育面板的导航与筛选，能较快定位到目标信息块。</p>
+            <p>对于需要反复回查的资料，将其加入书签或保持页面固定，可以提升日常使用效率。</p>
+            <span class="meta-note">查询 · 定位</span>
+        </div>
+        <div class="card">
+            <h3>📖 延伸阅读</h3>
+            <p>平台内常包含关联条目、背景介绍或补充说明。围绕某一主题展开延伸阅读时，易倍体育的页面层级与内部链接提供了比较好的连续浏览体验。</p>
+            <p>也可以结合外部来源，在多个页面间交叉参考，形成更完整的理解。</p>
+            <span class="meta-note">延伸 · 关联</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 (id=faq) -->
+    <div class="faq-summary" id="faq">
+        <h2>常见说明摘要</h2>
+
+        <div class="faq-item">
+            <div class="faq-q">如何使用对照功能？</div>
+            <div class="faq-a">可以在 <a href="https://panel-yibeisport.com">易倍体育</a> 中开启分栏或列表模式，将需要对比的数据逐项列出。部分板块支持自定义排序，方便按需排列。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">查询时需要注意什么？</div>
+            <div class="faq-a">建议先明确搜索或筛选关键词，利用页面提供的分类标签缩小范围。易倍体育的更新频率较为规律，数据时效性可在各模块标题处查看。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">延伸阅读从哪里开始？</div>
+            <div class="faq-a">从感兴趣的条目或摘要卡片入手，通常页面底部或侧边栏会提供“相关主题”链接。易倍体育的内容之间常有交叉引用，可以顺着链接逐层深入。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">页面布局是否支持移动端？</div>
+            <div class="faq-a">支持。易倍体育的响应式设计在手机和平板上均有调整，卡片与导航会重新排列。本介绍页也同样适配不同屏幕宽度。</div>
+        </div>
+    </div>
+
+    <!-- 延伸阅读 / 额外资源 (id=ref) -->
+    <div class="extras" id="ref">
+        <span>📎 延伸参考：</span>
+        <a href="https://panel-yibeisport.com">易倍体育</a>
+        <span>·</span>
+        <span>信息整理·日常场景</span>
+        <span>·</span>
+        <span style="color:#5a6b7c;">本页仅作介绍用途</span>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        内容整理自公开资料 · 易倍体育信息参考页
+    </div>
+</div>
+</body>
+</html>
